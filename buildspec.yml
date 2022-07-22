@@ -3,11 +3,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - $(aws ecr get-login --no-include-email --region eu-central-1)
+      - aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 117432927484.dkr.ecr.eu-central-1.amazonaws.com
   build:
     commands:
       - docker build -t hello:latest .
-      - docker tag hello 117432927484.dkr.ecr.eu-central-1.amazonaws.com/test-dev
+      - docker tag hello:latest 117432927484.dkr.ecr.eu-central-1.amazonaws.com/test-dev
   post_build:
     commands:
       - docker push 117432927484.dkr.ecr.eu-central-1.amazonaws.com/test-dev
