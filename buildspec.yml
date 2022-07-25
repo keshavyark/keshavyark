@@ -13,4 +13,4 @@ phases:
       - docker push 117432927484.dkr.ecr.eu-central-1.amazonaws.com/test-dev
       - printf '[{"name":Dev-Application-Testing,"imageUri":"%s"}]' 117432927484.dkr.ecr.eu-central-1.amazonaws.com/test-dev > imagedefinitions.json
 artifacts:
-  files: imagedefinitions.json
+    files: imagedefinitions.json
